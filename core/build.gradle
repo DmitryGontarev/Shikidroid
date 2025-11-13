@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
+
+android {
+    namespace "com.shikidroid.core"
+
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 35
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        dev {
+            minifyEnabled true
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+        buildConfig true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion "${versions.compose.compose_compiler}"
+    }
+}
+
+dependencies {
+
+    //Jetpack Compose
+    implementation "${libraries.compose.compiler}"
+    implementation "${libraries.compose.foundation}"
+    implementation "${libraries.compose.material}"
+    implementation "${libraries.compose.runtime}"
+    implementation "${libraries.compose.runtime_livedata}"
+    implementation "${libraries.compose.ui}"
+    implementation "${libraries.compose.ui_tooling_preview}"
+    debugImplementation "${libraries.compose.ui_tooling}"
+
+    //Compose Navigation
+    implementation "${libraries.compose.navigation}"
+
+    //Compose Activity
+    implementation "${libraries.compose.activity_compose}"
+
+    //Core_ktx
+    implementation "${libraries.core_ktx}"
+
+    // Coil
+    implementation "${libraries.coil}"
+
+    //Reflect
+    implementation "${libraries.kotlin_reflect}"
+
+    //Lifecycle
+    implementation "${libraries.lifecycle.viewmodel_ktx}"
+    implementation "${libraries.lifecycle.livedata_ktx}"
+
+    //RxJava3
+    implementation "${libraries.rxjava3.core}"
+    implementation "${libraries.rxjava3.android}"
+
+    //Dagger2
+    implementation "${libraries.dagger2.dagger}"
+    kapt "${libraries.dagger2.dagger_kapt}"
+    implementation "${libraries.dagger2.dagger_android}"
+    kapt "${libraries.dagger2.dagger_android_kapt}"
+}

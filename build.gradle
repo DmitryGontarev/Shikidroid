@@ -1,0 +1,184 @@
+buildscript {
+    ext {
+        ext.kotlin_version = '1.9.21'
+        ext.jvmTarget_version = '1.8'
+    }
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+plugins {
+    id 'com.android.application' version '8.1.4' apply false
+    id 'com.android.library' version '8.1.4' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.21' apply false
+}
+
+ext {
+    appVersionName = '1.0.0'
+
+    setup = [
+            compileSdk: 35,
+            buildTools: "30.0.2",
+            minSdk: 23,
+            targetSdk: 35
+    ]
+
+    versions = [
+            appcompat                           : '1.4.1',
+            material                            : '1.5.0',
+            dagger2                             : '2.48.1',
+
+            coil                                : '2.2.2',
+
+            landscapist                         : '1.6.1',
+
+            swiperefresh                        : '0.25.1',
+
+            compose: [
+                    compose                     : '1.2.1',
+
+                    compose_animation           : '1.5.4',
+
+                    compose_compiler            : '1.5.6',
+
+                    compose_foundation          : '1.2.1',
+                    compose_material            : '1.2.1',
+                    compose_runtime             : '1.2.1',
+                    compose_ui                  : '1.2.1',
+
+                    compose_navigation          : '2.5.2',
+                    activity_compose            : '1.4.0',
+                    compose_accompanist         : '0.28.0',
+                    constraint_layout           : '1.0.1'
+            ],
+
+            compose_tv : [
+                    tv_foundation               : '1.0.0-alpha03',
+                    tv_material                 : '1.0.0-alpha03'
+            ],
+
+            core_ktx                            : '1.7.0',
+            jetbrainsAnnotations                : '',
+
+            lifecycle                           : '2.5.1',
+            lifecycle_compose                   : '2.5.1',
+
+            exoplayer                           : '2.18.2',
+
+            rxjava3: [
+                    core                        : '3.1.5',
+                    android                     : '3.0.0',
+                    rxjava3_retrofit_adapter    : '3.0.0'
+            ],
+
+            coroutines                          : '1.6.4',
+
+            net: [
+                    okhttp                      : '4.11.0',
+                    logging_interceptor         : '4.11.0',
+                    retrofit2                   : '2.9.0',
+                    gson                        : '2.9.1'
+            ],
+
+            work_manager                        : '2.8.1',
+
+            test: [
+                    androidx: [
+                            junit               : '',
+                            annotation          : ''
+                    ],
+                    junit  : '',
+                    mockk                       : ''
+            ],
+    ]
+
+    libraries = [
+            appcompat                           : "androidx.appcompat:appcompat:${versions.appcompat}",
+            material                            : "com.google.android.material:material:${versions.material}",
+            core_ktx                            : "androidx.core:core-ktx:${versions.core_ktx}",
+
+            dagger2: [
+                    dagger                      : "com.google.dagger:dagger:${versions.dagger2}",
+                    dagger_kapt                 : "com.google.dagger:dagger-compiler:${versions.dagger2}", // annotationProcessor (kapt)
+                    dagger_android              : "com.google.dagger:dagger-android:${versions.dagger2}",
+                    dagger_android_kapt         : "com.google.dagger:dagger-android-processor:${versions.dagger2}" // annotationProcessor (kapt)
+            ],
+
+            rxjava3: [
+                    core                        : "io.reactivex.rxjava3:rxjava:${versions.rxjava3.core}",
+                    android                     : "io.reactivex.rxjava3:rxandroid:${versions.rxjava3.android}",
+                    rxjava3_retrofit_adapter    : "com.github.akarnokd:rxjava3-retrofit-adapter:${versions.rxjava3.rxjava3_retrofit_adapter}"
+            ],
+
+            coroutines: [
+                    core                        :"org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}",
+                    android                     :"org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+            ],
+
+            compose: [
+                    compiler                    : "androidx.compose.compiler:compiler:${versions.compose.compose_compiler}",
+                    foundation                  : "androidx.compose.foundation:foundation:${versions.compose.compose_foundation}",
+                    material                    : "androidx.compose.material:material:${versions.compose.compose_material}",
+                    runtime                     : "androidx.compose.runtime:runtime:${versions.compose.compose_runtime}",
+                    runtime_livedata            : "androidx.compose.runtime:runtime-livedata:${versions.compose.compose_runtime}",
+                    ui                          : "androidx.compose.ui:ui:${versions.compose.compose_ui}",
+                    ui_tooling                  : "androidx.compose.ui:ui-tooling:${versions.compose.compose_ui}",
+                    ui_tooling_preview          : "androidx.compose.ui:ui-tooling-preview:${versions.compose.compose_ui}",
+                    activity_compose            : "androidx.activity:activity-compose:${versions.compose.activity_compose}",
+                    navigation                  : "androidx.navigation:navigation-compose:${versions.compose.compose_navigation}",
+                    animation                   : "androidx.compose.animation:animation:${versions.compose.compose_animation}",
+                    accompanist                 : "com.google.accompanist:accompanist-systemuicontroller:${versions.compose.compose_accompanist}",
+                    accompanis_pager            : "com.google.accompanist:accompanist-pager:${versions.compose.compose_accompanist}",
+                    accompanist_navigation      : "com.google.accompanist:accompanist-navigation-animation:${versions.compose.compose_accompanist}",
+                    constraint_layout           : "androidx.constraintlayout:constraintlayout-compose:${versions.compose.constraint_layout}"
+            ],
+
+            compose_tv : [
+                    tv_foundation               : "androidx.tv:tv-foundation:${versions.compose_tv.tv_foundation}",
+                    tv_material                 : "androidx.tv:tv-material:${versions.compose_tv.tv_material}"
+            ],
+
+            exoplayer: [
+                    exoplayer                   : "com.google.android.exoplayer:exoplayer:${versions.exoplayer}",
+                    exoplayer_hls               : "com.google.android.exoplayer:exoplayer-hls:${versions.exoplayer}"
+            ],
+
+            swiperefresh                        : "com.google.accompanist:accompanist-swiperefresh:${versions.swiperefresh}",
+
+            coil                                : "io.coil-kt:coil-compose:${versions.coil}",
+
+            landscapist: [
+                    glide                       : "com.github.skydoves:landscapist-glide:${versions.landscapist}",
+                    coil                        : "com.github.skydoves:landscapist-coil:${versions.landscapist}",
+                    fresco                      : "com.github.skydoves:landscapist-fresco:${versions.landscapist}"
+            ],
+
+            net: [
+                    okhttp                      : "com.squareup.okhttp3:okhttp:${versions.net.okhttp}",
+                    logging_interceptor         : "com.squareup.okhttp3:logging-interceptor:${versions.net.logging_interceptor}",
+                    retrofit2                   : "com.squareup.retrofit2:retrofit:${versions.net.retrofit2}",
+                    retrofit_gson_converter     : "com.squareup.retrofit2:converter-gson:${versions.net.retrofit2}",
+                    gson                        : "com.google.code.gson:gson:${versions.net.gson}"
+            ],
+
+            work_manager: [
+                    multiprocess_support        : "androidx.work:work-multiprocess:${versions.work_manager}",
+                    coroutines_worker           : "androidx.work:work-runtime-ktx:${versions.work_manager}",
+                    rxjava3_worker              : "androidx.work:work-rxjava2:${versions.work_manager}"
+            ],
+
+            kotlin_reflect                      : "org.jetbrains.kotlin:kotlin-reflect:${kotlin_version}",
+            kotlin_stdlib                       : "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}",
+
+            lifecycle: [
+                    runtime_ktx                 : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}",
+                    viewmodel_ktx               : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+                    viewmodel_compose           : "androidx.lifecycle:lifecycle-viewmodel-compose:${versions.lifecycle}",
+                    livedata_ktx                : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}"
+            ]
+    ]
+
+    javaVersion = JavaVersion.VERSION_1_8
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
