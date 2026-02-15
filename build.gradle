@@ -15,10 +15,10 @@ ext {
     appVersionName = '1.0.0'
 
     setup = [
-            compileSdk: 35,
+            compileSdk: 36,
             buildTools: "30.0.2",
             minSdk: 23,
-            targetSdk: 35
+            targetSdk: 36
     ]
 
     versions = [
