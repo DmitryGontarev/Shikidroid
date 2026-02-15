@@ -9,11 +9,26 @@ object BaseUrl {
     // URL-адресы сайта
     ///////////////////////////////////////////////////////////////////////////
 
+    /** Первая часть доменного имени сайта Shikimori */
+    const val DOMAIN_FIRST = "shiki"
+
+    /** Вторая часть доменного имени сайта Shikimori */
+    const val DOMAIN_SECOND = "one"
+
     /** Базовый URL-адрес сайта Shikimori */
-    const val SHIKIMORI_BASE_URL = "https://shikimori.one/"
+    const val SHIKIMORI_BASE_URL = "https://${DOMAIN_FIRST}.${DOMAIN_SECOND}/"
+
+    /** Базовый URL-адрес для регистрации */
+    const val SHIKIMORI_SIGN_UP_URL = "https://${DOMAIN_FIRST}.${DOMAIN_SECOND}/users/sign_up"
+
+    /** Базовый URL-адрес для авторизации */
+    const val SHIKIMORI_SIGN_IN_URL = "https://${DOMAIN_FIRST}.${DOMAIN_SECOND}/users/sign_in"
+
+    /** Шаблон URL-адреса, содержащего ключ авторизации */
+    const val SHIKIMORI_AUTH_PATTERN = "https?://(?:www\\.)?${DOMAIN_FIRST}\\.${DOMAIN_SECOND}/oauth/authorize/(?:.*)"
 
     /** Базовый URL-адрес сайта Shikimori для загрузки картинок */
-    const val SHIKIMORI_IMAGE_URL = "https://kawai.shikimori.one/"
+    const val SHIKIMORI_IMAGE_URL = "https://kawai.${DOMAIN_FIRST}.${DOMAIN_SECOND}/"
 
     /** Базовый URL-адрес для просмотра видео */
     const val VIDEO_BASE_URL = "https://us-central1-shikimori-fbf37.cloudfunctions.net/"

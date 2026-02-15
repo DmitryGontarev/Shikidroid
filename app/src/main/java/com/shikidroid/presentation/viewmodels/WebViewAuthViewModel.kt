@@ -1,6 +1,7 @@
 package com.shikidroid.presentation.viewmodels
 
 import androidx.lifecycle.MutableLiveData
+import com.shikidroid.appconstants.BaseUrl.SHIKIMORI_AUTH_PATTERN
 import com.shikidroid.domain.interactors.AuthInteractor
 import com.shikidroid.domain.interactors.TokenLocalInteractor
 import com.shikidroid.domain.interactors.UserInteractor
@@ -78,12 +79,5 @@ internal class WebViewAuthViewModel(
 
                 }).addToDisposable()
         }
-    }
-
-    companion object {
-
-        private const val SHIKIMORI_AUTH_PATTERN = "https?://(?:www\\.)?shikimori\\.one/oauth/authorize/(?:.*)"
-        private const val SHIKIMORI_SIGN_UP_URL = "https://shikimori.one/users/sign_up"
-        private const val SHIKIMORI_SIGN_IN_URL = "https://shikimori.one/users/sign_in"
     }
 }

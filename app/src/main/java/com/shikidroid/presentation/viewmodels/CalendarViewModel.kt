@@ -76,7 +76,7 @@ internal class CalendarViewModel(
             .subscribe({ calendarList ->
                 setCalendarList(calendarList = calendarList)
             }, {
-                if (it.getHttpStatusCode() == HttpStatusCode.HTTP_403_FORBIDDED) {
+                if (it.getHttpStatusCode() == HttpStatusCode.HTTP_403_FORBIDDEN) {
                     urlWebViewIf403.value = it.getHttpUrl()
                 }
             }).addToDisposable()

@@ -28,7 +28,7 @@ object HttpStatusCode {
     /**
      * Код ответа, если такой запрос запрещён
      */
-    const val HTTP_403_FORBIDDED = 403
+    const val HTTP_403_FORBIDDEN = 403
 
     /**
      * Код ответа, если слишком много запросов
