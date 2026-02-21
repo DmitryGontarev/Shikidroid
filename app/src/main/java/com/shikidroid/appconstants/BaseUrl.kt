@@ -10,10 +10,10 @@ object BaseUrl {
     ///////////////////////////////////////////////////////////////////////////
 
     /** Первая часть доменного имени сайта Shikimori */
-    const val DOMAIN_FIRST = "shiki"
+    const val DOMAIN_FIRST = "shikimori"
 
     /** Вторая часть доменного имени сайта Shikimori */
-    const val DOMAIN_SECOND = "one"
+    const val DOMAIN_SECOND = "io"
 
     /** Базовый URL-адрес сайта Shikimori */
     const val SHIKIMORI_BASE_URL = "https://${DOMAIN_FIRST}.${DOMAIN_SECOND}/"
